@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #image {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <img id="image" src="https://imageonline.com.au/wp-content/uploads/2022/06/shutterstock_1430177465-scaled.jpg" alt="Bouncing Image" width="100" height="100">
+    
+    <script>
+        var image = document.getElementById("image");
+        var maxX = window.innerWidth - image.width;
+        var maxY = window.innerHeight - image.height;
+        var x = 0;
+        var y = 0;
+        var xDirection = 1;
+        var yDirection = 1;
+
+        function moveImage() {
+            x += 5 * xDirection;
+            y += 5 * yDirection;
+
+            if (x >= maxX || x <= 0) {
+                xDirection *= -1;
+            }
+
+            if (y >= maxY || y <= 0) {
+                yDirection *= -1;
+            }
+
+            image.style.left = x + "px";
+            image.style.top = y + "px";
+        }
+
+        setInterval(moveImage, 50);
+    </script>
+</body>
+</html>
